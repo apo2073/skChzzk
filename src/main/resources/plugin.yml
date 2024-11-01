@@ -1,0 +1,7 @@
+name: skChzzk
+version: '1.0'
+main: kr.apo2073.skChzzk.SkChzzk
+api-version: '1.20'
+authors: [ 아포칼립스 ]
+libraries:
+  - org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.21
