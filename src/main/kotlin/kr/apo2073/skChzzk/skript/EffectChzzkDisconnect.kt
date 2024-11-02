@@ -8,29 +8,25 @@ import ch.njol.util.Kleenean
 import kr.apo2073.skChzzk.utils.ChzzkChatManager
 import org.bukkit.event.Event
 
-class EffectChzzkConnect : Effect() {
+class EffectChzzkDisconnect : Effect() {
     companion object {
         init {
             Skript.registerEffect(
-                EffectChzzkConnect::class.java,
-                "connect to chzzk [channel] %string%"
+                EffectChzzkDisconnect::class.java,
+                "disconnect from chzzk"
             )
         }
     }
 
-    private var channelId: Expression<String>? = null
-
     override fun init(exprs: Array<Expression<*>>, matchedPattern: Int, isDelayed: Kleenean, parseResult: SkriptParser.ParseResult): Boolean {
-        channelId = exprs[0] as Expression<String>
         return true
     }
 
     override fun execute(event: Event) {
-        val id = channelId?.getSingle(event) ?: return
-        ChzzkChatManager.connect(id)
+        ChzzkChatManager.disconnect()
     }
 
     override fun toString(event: Event?, debug: Boolean): String {
-        return "connect to chzzk channel ${channelId?.toString(event, debug)}"
+        return "disconnect from chzzk"
     }
 }
