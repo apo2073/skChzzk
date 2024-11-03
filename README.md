@@ -9,9 +9,9 @@ command /chzzk [<text>] [<text>]:
         if arg 1 is "connect":
             if arg 2 is set:
                 connect to chzzk channel arg-2
-                set {_name} to chzzk channel name
-                set {_fol} to chzzk channel followers
-                send "연결됨  %{_name}%(%{_followers}% 팔로워)"
+                set {_name} to chzzk channel name of arg-2
+                set {_fol} to chzzk channel followers of arg-2
+                send "연결됨 %{_name}%(%{_fol}% 팔로워)"
             else:
                 send "§c채널 ID를 입력해주세요"
         else if arg 1 is "disconnect":
@@ -21,7 +21,15 @@ command /chzzk [<text>] [<text>]:
             send "§c/chzzk connect <채널ID> 또는 /chzzk disconnect를 사용해주세요"
 
 on chzzk chat:
+    set {_ch} to channel name
     set {_content} to chzzk message content
     set {_sender} to chzzk message sender
-    broadcast "§b[치지직] §f%{_sender}%: %{_content}%"
+    broadcast "§b[%{_ch}%] §f%{_sender}%: %{_content}%"
+
+on chzzk donation:
+    set {_chn} to channel name
+    set {_content} to donation content
+    set {_amount} to donation amount
+    set {_sender} to donation sender
+    broadcast "§b[%{_chn}%] §f%{_sender}%: %{_content}% &7- &e%{_amount}%"
 ```
