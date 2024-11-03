@@ -9,17 +9,17 @@ class ChzzkEvent: SimpleEvent() {
             Skript.registerEvent("[chzzk] chat message",
                 SimpleEvent::class.java,
                 ChzzkChatEvent::class.java,
-                "chzzk (chat|message)"
+                "[chzzk] (chat|message)"
             )
             Skript.registerEvent("[chzzk] donation",
                 SimpleEvent::class.java,
                 ChzzkDonationEvent::class.java,
-                "chzzk donation"
+                "[chzzk] donation"
             )
             Skript.registerEvent("[chzzk] subscription",
                 SimpleEvent::class.java,
                 ChzzkSubscriptionEvent::class.java,
-                "chzzk subscription"
+                "[chzzk] subscription"
             )
         }
     }

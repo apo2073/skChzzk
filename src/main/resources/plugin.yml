@@ -8,3 +8,5 @@ depend:
 authors: [ 아포칼립스 ]
 libraries:
   - org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.21
+  - com.squareup.okhttp3:okhttp:4.9.3
+  - org.java-websocket:Java-WebSocket:1.5.2

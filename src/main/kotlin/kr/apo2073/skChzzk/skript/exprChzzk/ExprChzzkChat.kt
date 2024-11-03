@@ -7,6 +7,7 @@ import ch.njol.skript.lang.SkriptParser
 import ch.njol.skript.lang.util.SimpleExpression
 import ch.njol.util.Kleenean
 import kr.apo2073.skChzzk.utils.ChzzkChatEvent
+import kr.apo2073.skChzzk.utils.ChzzkChatManager
 import org.bukkit.event.Event
 
 class ExprChzzkChat : SimpleExpression<String>() {
@@ -14,10 +15,12 @@ class ExprChzzkChat : SimpleExpression<String>() {
         init {
             Skript.registerExpression(
                 ExprChzzkChat::class.java,
-                String::class.java,  // Any 대신 String 사용
-                ExpressionType.PROPERTY,  // SIMPLE 대신 PROPERTY 사용
-                "[the] chzzk (message|chat) content",
-                "[the] chzzk (message|chat) sender"
+                String::class.java,
+                ExpressionType.PROPERTY,
+                "[the] [chzzk] (message|chat) content",
+                "[the] [chzzk] (message|chat) sender",
+                "[the] [chzzk] channel id",
+                "[the] [chzzk] channel name"
             )
         }
     }
@@ -32,9 +35,12 @@ class ExprChzzkChat : SimpleExpression<String>() {
     override fun get(event: Event): Array<String?> {
         if (event is ChzzkChatEvent) {
             val msg = event.message
+            val chat=event.chat
             return when (pattern) {
                 0 -> arrayOf(msg.content)
                 1 -> arrayOf(msg.profile?.nickname ?: "익명")
+                2 -> arrayOf(chat.channelId)
+                3 -> arrayOf(ChzzkChatManager.getChannelName(chat.channelId))
                 else -> arrayOf()
             }
         }

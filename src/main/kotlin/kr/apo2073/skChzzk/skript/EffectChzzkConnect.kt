@@ -13,7 +13,7 @@ class EffectChzzkConnect : Effect() {
         init {
             Skript.registerEffect(
                 EffectChzzkConnect::class.java,
-                "connect to chzzk [channel] %string%"
+                "connect to [chzzk] channel %string%"
             )
         }
     }

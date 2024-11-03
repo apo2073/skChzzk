@@ -11,6 +11,7 @@ import kr.apo2073.skChzzk.skript.exprChzzk.ExprChzzkChannelInfo
 import kr.apo2073.skChzzk.skript.exprChzzk.ExprChzzkChat
 import kr.apo2073.skChzzk.skript.exprChzzk.ExprChzzkDonation
 import kr.apo2073.skChzzk.skript.exprChzzk.ExprChzzkSubscription
+import kr.apo2073.skChzzk.utils.ChzzkChatManager
 import kr.apo2073.skChzzk.utils.ChzzkEvent
 import org.bukkit.plugin.java.JavaPlugin
 
@@ -37,6 +38,6 @@ class SkChzzk : JavaPlugin() {
     }
 
     override fun onDisable() {
-        // Plugin shutdown logic
+        ChzzkChatManager.disconnect()
     }
 }

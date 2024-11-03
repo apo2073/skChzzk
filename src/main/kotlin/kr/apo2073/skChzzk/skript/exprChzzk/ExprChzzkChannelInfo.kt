@@ -8,6 +8,7 @@ import ch.njol.skript.lang.util.SimpleExpression
 import ch.njol.util.Kleenean
 import kr.apo2073.skChzzk.utils.ChzzkChatManager
 import org.bukkit.event.Event
+import xyz.r2turntrue.chzzk4j.ChzzkBuilder
 
 class ExprChzzkChannelInfo : SimpleExpression<String>() {
     companion object {
@@ -16,25 +17,32 @@ class ExprChzzkChannelInfo : SimpleExpression<String>() {
                 ExprChzzkChannelInfo::class.java,
                 String::class.java,
                 ExpressionType.PROPERTY,
-                "[(the|a)] [chzzk] channel name",
-                "[(the|a)] [chzzk] channel followers"
+                "[the] chzzk channel name of %string%",
+                "[the] chzzk channel follower[s] of %string%"
             )
         }
     }
 
     private var pattern: Int = 0
+    private lateinit var channelId: Expression<String>
 
     override fun init(exprs: Array<Expression<*>>, matchedPattern: Int, isDelayed: Kleenean, parseResult: SkriptParser.ParseResult): Boolean {
         pattern = matchedPattern
+        channelId = exprs[0] as Expression<String>
         return true
     }
 
     override fun get(event: Event): Array<String?> {
-        val channelInfo = ChzzkChatManager.getCurrentChannelInfo()
-        return when (pattern) {
-            0 -> arrayOf(channelInfo?.channelName ?: "알 수 없음")
-            1 -> arrayOf(channelInfo?.followerCount?.toString() ?: "0")
-            else -> arrayOf()
+        try {
+            val id = channelId.getSingle(event) ?: return arrayOf()
+            return when (pattern) {
+                0 -> arrayOf(ChzzkChatManager.getChannelName(id))
+                1 -> arrayOf(ChzzkChatManager.getChannelFollower(id))
+                else -> arrayOf()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return arrayOf()
         }
     }
 

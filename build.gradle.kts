@@ -23,7 +23,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("com.github.apo2073:ApoLib:1.0.4")
     implementation("com.github.SkriptLang:Skript:2.9.4")
-    implementation("io.github.R2turnTrue:chzzk4j:0.0.10")
+    implementation(files("libs/chzzk4j.jar"))
 }
 
 val targetJavaVersion = 17
@@ -41,5 +41,14 @@ tasks.processResources {
     filteringCharset = "UTF-8"
     filesMatching("plugin.yml") {
         expand(props)
+    }
+}
+
+tasks.shadowJar {
+    archiveClassifier.set("all")
+    mergeServiceFiles()
+    archiveFileName.set("skChzzk.jar")
+    dependencies {
+        include(dependency(files("libs/chzzk4j.jar")))
     }
 }

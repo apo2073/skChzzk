@@ -11,10 +11,10 @@ class ChatEvent: SkriptEvent() {
     companion object {
         init {
             Skript.registerEvent(
-                "Chzzk Chat", // 문서에 표시될 이벤트 이름
-                ChatEvent::class.java, // 이벤트 클래스
-                ChzzkChatEvent::class.java, // 실제 이벤트
-                "[chzzk] (chat|message)" // 구문 패턴
+                "Chzzk Chat",
+                ChatEvent::class.java,
+                ChzzkChatEvent::class.java,
+                "[chzzk] (chat|message)"
             )
         }
     }

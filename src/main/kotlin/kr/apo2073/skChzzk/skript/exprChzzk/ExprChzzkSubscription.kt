@@ -6,6 +6,7 @@ import ch.njol.skript.lang.ExpressionType
 import ch.njol.skript.lang.SkriptParser
 import ch.njol.skript.lang.util.SimpleExpression
 import ch.njol.util.Kleenean
+import kr.apo2073.skChzzk.utils.ChzzkChatManager
 import kr.apo2073.skChzzk.utils.ChzzkSubscriptionEvent
 import org.bukkit.event.Event
 
@@ -16,9 +17,11 @@ class ExprChzzkSubscription : SimpleExpression<String>() {
                 ExprChzzkSubscription::class.java,
                 String::class.java,
                 ExpressionType.PROPERTY,
-                "[the] chzzk subscription (sender|name)",
-                "[the] chzzk subscription month[s]",
-                "[the] chzzk subscription tier"
+                "[the] [chzzk] subscription (sender|name)",
+                "[the] [chzzk] subscription month[s]",
+                "[the] [chzzk] subscription tier",
+                "[the] [chzzk] channel id",
+                "[the] [chzzk] channel name"
             )
         }
     }
@@ -33,10 +36,13 @@ class ExprChzzkSubscription : SimpleExpression<String>() {
     override fun get(event: Event): Array<String?> {
         if (event is ChzzkSubscriptionEvent) {
             val msg = event.message
+            val chat=event.chat
             return when (pattern) {
                 0 -> arrayOf(msg.profile?.nickname ?: "익명")
-                1 -> arrayOf(msg.subscriptionMonth.toString())  // Int를 String으로 변환
+                1 -> arrayOf(msg.subscriptionMonth.toString())
                 2 -> arrayOf(msg.subscriptionTierName)
+                3 -> arrayOf(chat.channelId)
+                4 -> arrayOf(ChzzkChatManager.getChannelName(chat.channelId))
                 else -> arrayOf()
             }
         }

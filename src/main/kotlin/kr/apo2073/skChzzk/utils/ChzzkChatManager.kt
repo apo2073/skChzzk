@@ -26,29 +26,43 @@ object ChzzkChatManager {
 
             chat = chzzk.chat(channelId)
                 .withChatListener(object : ChatEventListener {
-                    override fun onConnect(chat: ChzzkChat, isReconnecting: Boolean) {
-                        if (!isReconnecting) {
-                            chat.requestRecentChat(50)
-                        }
-                    }
-
                     override fun onError(ex: Exception) {
                         ex.printStackTrace()
                     }
 
-                    override fun onChat(msg: ChatMessage) {
-                        Bukkit.getPluginManager().callEvent(ChzzkChatEvent(msg))
+                    override fun onChat(msg: ChatMessage, chat: ChzzkChat) {
+                        Bukkit.getScheduler() .runTask(SkChzzk.instance, Runnable {
+                            try {
+                                val event=ChzzkChatEvent(msg, chat)
+                                Bukkit.getPluginManager().callEvent(event)
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                            }
+                        })
                     }
 
-                    override fun onDonationChat(msg: DonationMessage) {
-                        Bukkit.getPluginManager().callEvent(ChzzkDonationEvent(msg))
+                    override fun onDonationChat(msg: DonationMessage, chat: ChzzkChat) {
+                        Bukkit.getScheduler() .runTask(SkChzzk.instance, Runnable {
+                            try {
+                                val event=ChzzkDonationEvent(msg, chat)
+                                Bukkit.getPluginManager().callEvent(event)
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                            }
+                        })
                     }
 
-                    override fun onSubscriptionChat(msg: SubscriptionMessage) {
-                        Bukkit.getPluginManager().callEvent(ChzzkSubscriptionEvent(msg))
+                    override fun onSubscriptionChat(msg: SubscriptionMessage, chat: ChzzkChat) {
+                        Bukkit.getScheduler() .runTask(SkChzzk.instance, Runnable {
+                            try {
+                                val event=ChzzkSubscriptionEvent(msg, chat)
+                                Bukkit.getPluginManager().callEvent(event)
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                            }
+                        })
                     }
-                })
-                .build()
+                }).build()
 
             chat?.connectBlocking()
             return true
@@ -69,5 +83,8 @@ object ChzzkChatManager {
         }
     }
 
+    fun getChannelName(id:String):String= chzzk.getChannel(id)?.channelName ?: "알 수 없음"
+    fun getChannelFollower(id:String):String= (chzzk.getChannel(id)?.followerCount ?: "0").toString()
     fun getCurrentChannelInfo(): ChzzkChannel? = currentChannel
+    fun getChzzk(): Chzzk= chzzk
 }
