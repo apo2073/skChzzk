@@ -9,26 +9,22 @@ import kr.apo2073.skChzzk.utils.ChzzkChatManager
 import org.bukkit.entity.Player
 import org.bukkit.event.Event
 
-class EffectChzzkDisconnect : Effect() {
+class EffectChzzkDisconnectAll : Effect() {
     companion object {
         init {
             Skript.registerEffect(
-                EffectChzzkDisconnect::class.java,
-                "disconnect %player%'s channel [from chzzk]"
+                EffectChzzkDisconnectAll::class.java,
+                "disconnect (all|every) channel [from chzzk]"
             )
         }
     }
 
-    private var player: Expression<Player>?= null
-
     override fun init(exprs: Array<Expression<*>>, matchedPattern: Int, isDelayed: Kleenean, parseResult: SkriptParser.ParseResult): Boolean {
-        player=exprs[0] as Expression<Player>
         return true
     }
 
     override fun execute(event: Event) {
-        val p=this.player?.getSingle(event) ?: return
-        ChzzkChatManager.disconnect(p.uniqueId)
+        ChzzkChatManager.disconnectAll()
     }
 
     override fun toString(event: Event?, debug: Boolean): String {

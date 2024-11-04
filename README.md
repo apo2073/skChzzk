@@ -8,7 +8,7 @@ command /chzzk [<text>] [<text>]:
     trigger:
         if arg 1 is "connect":
             if arg 2 is set:
-                connect to chzzk channel arg-2
+                connect player to chzzk channel arg-2
                 set {_name} to chzzk channel name of arg-2
                 set {_fol} to chzzk channel followers of arg-2
                 send "연결됨 %{_name}%(%{_fol}% 팔로워)"
@@ -16,7 +16,7 @@ command /chzzk [<text>] [<text>]:
                 send "§c채널 ID를 입력해주세요"
         else if arg 1 is "disconnect":
             send "&c채널 %channel name%을(를) 연결 해제 했습니다"
-            disconnect from chzzk
+            disconnect player's channel from chzzk
         else:
             send "§c/chzzk connect <채널ID> 또는 /chzzk disconnect를 사용해주세요"
 
