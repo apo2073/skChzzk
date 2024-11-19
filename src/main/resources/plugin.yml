@@ -4,7 +4,6 @@ main: kr.apo2073.skChzzk.SkChzzk
 api-version: '1.20'
 depend:
   - Skript
-  - ApoLib
 authors: [ 아포칼립스 ]
 libraries:
   - org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.21

@@ -3,8 +3,8 @@
 ---
 
 __usage__
-```scss
-command /chzzk [<text>] [<text>]:
+```
+command /chzzk [<text>] [<text>]: 
     trigger:
         if arg 1 is "connect":
             if arg 2 is set:
@@ -15,7 +15,7 @@ command /chzzk [<text>] [<text>]:
             else:
                 send "§c채널 ID를 입력해주세요"
         else if arg 1 is "disconnect":
-            send "&c채널 %channel name%을(를) 연결 해제 했습니다"
+            send "&c채널 %chzzk channel name of player's channel%을(를) 연결 해제 했습니다"
             disconnect player's channel from chzzk
         else:
             send "§c/chzzk connect <채널ID> 또는 /chzzk disconnect를 사용해주세요"
@@ -23,7 +23,7 @@ command /chzzk [<text>] [<text>]:
 on chzzk chat:
     set {_ch} to channel name
     set {_content} to chzzk message content
-    set {_sender} to chzzk message sender
+    set {_sender} to chzzk message sender  
     broadcast "§b[%{_ch}%] §f%{_sender}%: %{_content}%"
 
 on chzzk donation:
@@ -32,4 +32,15 @@ on chzzk donation:
     set {_amount} to donation amount
     set {_sender} to donation sender
     broadcast "§b[%{_chn}%] §f%{_sender}%: %{_content}% &7- &e%{_amount}%"
+
+on chzzk subscription:
+    set {_chn} to channel name
+    set {_tier} to subscription tier
+    set {_month} to subscription month
+    set {_sender} to subscription sender
+    broadcast "§b[%{_chn}%] &a%{_sender}%&f님의 &6%{_month}&f개월 구독%"
 ```
+
+---
+
+### Made with [Chzzk4j](https://github.com/R2turnTrue/chzzk4j)

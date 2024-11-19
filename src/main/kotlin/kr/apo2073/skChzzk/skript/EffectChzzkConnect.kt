@@ -15,7 +15,7 @@ class EffectChzzkConnect : Effect() {
             Skript.registerEffect(
                 EffectChzzkConnect::class.java,
                 "connect %player% to [chzzk] channel %string%"
-            ) // TODO: setting each player's channel
+            )
         }
     }
 

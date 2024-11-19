@@ -14,14 +14,12 @@ repositories {
     maven("https://oss.sonatype.org/content/groups/public/") {
         name = "sonatype"
     }
-    maven("https://jitpack.io")
     maven("https://repo.skriptlang.org/releases")
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("com.github.apo2073:ApoLib:1.0.4")
     implementation("com.github.SkriptLang:Skript:2.9.4")
     implementation(files("libs/chzzk4j.jar"))
 }

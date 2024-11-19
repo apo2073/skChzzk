@@ -2,22 +2,17 @@ package kr.apo2073.skChzzk.utils
 
 import kr.apo2073.skChzzk.SkChzzk
 import org.bukkit.Bukkit
-import org.bukkit.entity.Player
 import xyz.r2turntrue.chzzk4j.Chzzk
 import xyz.r2turntrue.chzzk4j.ChzzkBuilder
-import xyz.r2turntrue.chzzk4j.chat.ChatEventListener
-import xyz.r2turntrue.chzzk4j.chat.ChatMessage
-import xyz.r2turntrue.chzzk4j.chat.DonationMessage
-import xyz.r2turntrue.chzzk4j.chat.SubscriptionMessage
-import xyz.r2turntrue.chzzk4j.chat.ChzzkChat
+import xyz.r2turntrue.chzzk4j.chat.*
 import xyz.r2turntrue.chzzk4j.types.channel.ChzzkChannel
-import java.util.UUID
+import java.util.*
 
 object ChzzkChatManager {
     private var chat: ChzzkChat? = null
     private val chzzk: Chzzk = ChzzkBuilder().build()
     private var currentChannel: ChzzkChannel? = null
-    private val playerChannels = mutableMapOf<UUID, ChzzkChannel?>()
+    private val playerChannels = mutableMapOf<UUID, ChzzkChannel>()
 
     fun connect(channelId: String, uuid: UUID): Boolean {
         try {
@@ -97,7 +92,8 @@ object ChzzkChatManager {
     fun disconnectAll() {
         try {
             playerChannels.keys.forEach { uuid ->
-                val player = Bukkit.getPlayer(uuid)
+                val player = Bukkit.getPlayer(uuid) ?: return@forEach
+                chzzk.chat(playerChannels[player.uniqueId]?.channelId).build().closeBlocking()
             }
 
             chat?.closeBlocking()
@@ -124,6 +120,12 @@ object ChzzkChatManager {
         } catch (e: Exception) {
             "0"
         }
+    }
+
+    fun getChannelPlayer(id: String): String {
+        return Bukkit.getOnlinePlayers()
+            .firstOrNull { playerChannels[it.uniqueId]?.channelId == id }
+            ?.name ?: "NONE"
     }
 
     fun getCurrentChannelInfo(): ChzzkChannel? = currentChannel

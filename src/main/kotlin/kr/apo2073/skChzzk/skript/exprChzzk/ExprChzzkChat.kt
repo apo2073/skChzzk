@@ -20,7 +20,8 @@ class ExprChzzkChat : SimpleExpression<String>() {
                 "[the] [chzzk] (message|chat) content",
                 "[the] [chzzk] (message|chat) sender",
                 "[the] [chzzk] channel id",
-                "[the] [chzzk] channel name"
+                "[the] [chzzk] channel name",
+                "[the] [chzzk] channel player"
             )
         }
     }
@@ -41,6 +42,7 @@ class ExprChzzkChat : SimpleExpression<String>() {
                 1 -> arrayOf(msg.profile?.nickname ?: "익명")
                 2 -> arrayOf(chat.channelId)
                 3 -> arrayOf(ChzzkChatManager.getChannelName(chat.channelId))
+                4 -> arrayOf(ChzzkChatManager.getChannelPlayer(chat.channelId))
                 else -> arrayOf()
             }
         }

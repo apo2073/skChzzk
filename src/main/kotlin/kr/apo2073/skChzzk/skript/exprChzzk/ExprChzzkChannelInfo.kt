@@ -8,7 +8,6 @@ import ch.njol.skript.lang.util.SimpleExpression
 import ch.njol.util.Kleenean
 import kr.apo2073.skChzzk.utils.ChzzkChatManager
 import org.bukkit.event.Event
-import xyz.r2turntrue.chzzk4j.ChzzkBuilder
 
 class ExprChzzkChannelInfo : SimpleExpression<String>() {
     companion object {

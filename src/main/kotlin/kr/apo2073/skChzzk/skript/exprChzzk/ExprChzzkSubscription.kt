@@ -21,7 +21,8 @@ class ExprChzzkSubscription : SimpleExpression<String>() {
                 "[the] [chzzk] subscription month[s]",
                 "[the] [chzzk] subscription tier",
                 "[the] [chzzk] channel id",
-                "[the] [chzzk] channel name"
+                "[the] [chzzk] channel name",
+                "[the] [chzzk] channel player"
             )
         }
     }
@@ -43,6 +44,7 @@ class ExprChzzkSubscription : SimpleExpression<String>() {
                 2 -> arrayOf(msg.subscriptionTierName)
                 3 -> arrayOf(chat.channelId)
                 4 -> arrayOf(ChzzkChatManager.getChannelName(chat.channelId))
+                5 -> arrayOf(ChzzkChatManager.getChannelPlayer(chat.channelId))
                 else -> arrayOf()
             }
         }

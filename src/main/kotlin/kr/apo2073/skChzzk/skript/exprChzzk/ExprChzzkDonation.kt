@@ -6,7 +6,6 @@ import ch.njol.skript.lang.ExpressionType
 import ch.njol.skript.lang.SkriptParser
 import ch.njol.skript.lang.util.SimpleExpression
 import ch.njol.util.Kleenean
-import kr.apo2073.lib.Plugins.bcast
 import kr.apo2073.skChzzk.utils.ChzzkChatManager
 import kr.apo2073.skChzzk.utils.ChzzkDonationEvent
 import org.bukkit.event.Event
@@ -22,7 +21,8 @@ class ExprChzzkDonation : SimpleExpression<String>() {
                 "[(the|a)] [chzzk] donation (sender|name)",
                 "[(the|a)] [chzzk] donation (content|message)",
                 "[the] [chzzk] channel id",
-                "[the] [chzzk] channel name"
+                "[the] [chzzk] channel name",
+                "[the] [chzzk] channel player"
             )
         }
     }
@@ -50,6 +50,7 @@ class ExprChzzkDonation : SimpleExpression<String>() {
                 2 -> arrayOf(msg.content ?: "")
                 3 -> arrayOf(chat.channelId ?: "Unknown")
                 4 -> arrayOf(ChzzkChatManager.getChannelName(chat.channelId ?: "unknown"))
+                5 -> arrayOf(ChzzkChatManager.getChannelPlayer(chat.channelId))
                 else -> arrayOf("")
             }
         }

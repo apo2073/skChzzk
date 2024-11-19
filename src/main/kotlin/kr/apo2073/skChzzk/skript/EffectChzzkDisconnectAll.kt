@@ -6,7 +6,6 @@ import ch.njol.skript.lang.Expression
 import ch.njol.skript.lang.SkriptParser
 import ch.njol.util.Kleenean
 import kr.apo2073.skChzzk.utils.ChzzkChatManager
-import org.bukkit.entity.Player
 import org.bukkit.event.Event
 
 class EffectChzzkDisconnectAll : Effect() {
