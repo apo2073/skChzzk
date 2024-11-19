@@ -46,7 +46,7 @@ class ExprChzzkPlayer: SimpleExpression<String>() {
         return true
     }
     
-    override fun toString(e: Event?, debug: Boolean) = "get player's channel"
+    override fun toString(e: Event?, debug: Boolean) = "player's channel info"
     override fun isSingle() = true
     override fun getReturnType() = String::class.java
 }

@@ -48,8 +48,8 @@ class ExprChzzkDonation : SimpleExpression<String>() {
                 0 -> arrayOf("${msg.payAmount ?: "0"}")
                 1 -> arrayOf(msg.profile?.nickname ?: "익명")
                 2 -> arrayOf(msg.content ?: "")
-                3 -> arrayOf(chat.channelId ?: "Unknown")
-                4 -> arrayOf(ChzzkChatManager.getChannelName(chat.channelId ?: "unknown"))
+                3 -> arrayOf(chat.channelId ?: "알 수 없음")
+                4 -> arrayOf(ChzzkChatManager.getChannelName(chat.channelId ?: "알 수 없음"))
                 5 -> arrayOf(ChzzkChatManager.getChannelPlayer(chat.channelId))
                 else -> arrayOf("")
             }

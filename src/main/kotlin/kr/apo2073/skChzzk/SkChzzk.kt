@@ -10,7 +10,7 @@ import kr.apo2073.skChzzk.skript.events.DonationEvent
 import kr.apo2073.skChzzk.skript.events.SubscriptionEvent
 import kr.apo2073.skChzzk.skript.exprChzzk.*
 import kr.apo2073.skChzzk.utils.ChzzkChatManager
-import kr.apo2073.skChzzk.utils.ChzzkEvent
+import kr.apo2073.skChzzk.skript.events.ChzzkEvent
 import org.bukkit.plugin.java.JavaPlugin
 
 class SkChzzk : JavaPlugin() {

@@ -9,14 +9,9 @@ import xyz.r2turntrue.chzzk4j.chat.SubscriptionMessage
 
 data class ChzzkChatEvent(val message: ChatMessage, val chat:ChzzkChat): Event() {
     override fun getEventName() = "ChzzkChatEvent"
-
-    override fun getHandlers(): HandlerList {
-        return getHandlerList()
-    }
-
+    override fun getHandlers(): HandlerList = getHandlerList()
     companion object {
         private val handlers = HandlerList()
-
         @JvmStatic
         fun getHandlerList(): HandlerList {
             return handlers
@@ -26,14 +21,9 @@ data class ChzzkChatEvent(val message: ChatMessage, val chat:ChzzkChat): Event()
 
 data class ChzzkDonationEvent(val message: DonationMessage, val chat:ChzzkChat) : Event() {
     override fun getEventName() = "ChzzkDonationEvent"
-
-    override fun getHandlers(): HandlerList {
-        return getHandlerList()
-    }
-
+    override fun getHandlers(): HandlerList = getHandlerList()
     companion object {
         private val handlers = HandlerList()
-
         @JvmStatic
         fun getHandlerList(): HandlerList {
             return handlers
@@ -43,14 +33,9 @@ data class ChzzkDonationEvent(val message: DonationMessage, val chat:ChzzkChat) 
 
 data class ChzzkSubscriptionEvent(val message: SubscriptionMessage, val chat:ChzzkChat) : Event() {
     override fun getEventName() = "ChzzkSubscriptionEvent"
-
-    override fun getHandlers(): HandlerList {
-        return getHandlerList()
-    }
-
+    override fun getHandlers(): HandlerList = getHandlerList()
     companion object {
         private val handlers = HandlerList()
-
         @JvmStatic
         fun getHandlerList(): HandlerList {
             return handlers

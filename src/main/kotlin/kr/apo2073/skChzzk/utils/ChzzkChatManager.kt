@@ -20,46 +20,30 @@ object ChzzkChatManager {
             currentChannel = channel
             playerChannels[uuid] = channel
 
-            if (chat != null) {
-                disconnect()
-            }
+            if (chat != null) disconnect(uuid)
 
             chat = chzzk.chat(channelId)
                 .withChatListener(object : ChatEventListener {
-                    override fun onError(ex: Exception) {
-                        ex.printStackTrace()
-                    }
+                    override fun onError(ex: Exception) { ex.printStackTrace() }
 
                     override fun onChat(msg: ChatMessage, chat: ChzzkChat) {
                         Bukkit.getScheduler() .runTask(SkChzzk.instance, Runnable {
-                            try {
-                                val event=ChzzkChatEvent(msg, chat)
-                                Bukkit.getPluginManager().callEvent(event)
-                            } catch (e: Exception) {
-                                e.printStackTrace()
-                            }
+                            val event=ChzzkChatEvent(msg, chat)
+                            Bukkit.getPluginManager().callEvent(event)
                         })
                     }
 
                     override fun onDonationChat(msg: DonationMessage, chat: ChzzkChat) {
                         Bukkit.getScheduler() .runTask(SkChzzk.instance, Runnable {
-                            try {
-                                val event=ChzzkDonationEvent(msg, chat)
-                                Bukkit.getPluginManager().callEvent(event)
-                            } catch (e: Exception) {
-                                e.printStackTrace()
-                            }
+                            val event=ChzzkDonationEvent(msg, chat)
+                            Bukkit.getPluginManager().callEvent(event)
                         })
                     }
 
                     override fun onSubscriptionChat(msg: SubscriptionMessage, chat: ChzzkChat) {
                         Bukkit.getScheduler() .runTask(SkChzzk.instance, Runnable {
-                            try {
-                                val event=ChzzkSubscriptionEvent(msg, chat)
-                                Bukkit.getPluginManager().callEvent(event)
-                            } catch (e: Exception) {
-                                e.printStackTrace()
-                            }
+                            val event=ChzzkSubscriptionEvent(msg, chat)
+                            Bukkit.getPluginManager().callEvent(event)
                         })
                     }
                 }).build()
@@ -78,11 +62,7 @@ object ChzzkChatManager {
         try {
             chat?.closeBlocking()
             chat = null
-            if (uuid != null) {
-                playerChannels.remove(uuid)
-            } else {
-                playerChannels.clear()
-            }
+            playerChannels.remove(uuid) ?: playerChannels.clear()
             currentChannel = null
         } catch (e: Exception) {
             e.printStackTrace()

@@ -13,7 +13,7 @@ class EffectChzzkDisconnectAll : Effect() {
         init {
             Skript.registerEffect(
                 EffectChzzkDisconnectAll::class.java,
-                "disconnect (all|every) channel [from chzzk]"
+                "disconnect (all|every) channel"
             )
         }
     }

@@ -16,8 +16,8 @@ class ExprChzzkChannelInfo : SimpleExpression<String>() {
                 ExprChzzkChannelInfo::class.java,
                 String::class.java,
                 ExpressionType.PROPERTY,
-                "[the] chzzk channel name of %string%",
-                "[the] chzzk channel follower[s] of %string%"
+                "[the] [chzzk] channel name of %string%",
+                "[the] [chzzk] channel follower[s] of %string%"
             )
         }
     }
