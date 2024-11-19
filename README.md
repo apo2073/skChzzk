@@ -3,7 +3,7 @@
 ---
 
 __usage__
-```
+```scss
 command /chzzk [<text>] [<text>]: 
     trigger:
         if arg 1 is "connect":
@@ -24,21 +24,21 @@ on chzzk chat:
     set {_ch} to channel name
     set {_content} to chzzk message content
     set {_sender} to chzzk message sender  
-    broadcast "§b[%{_ch}%] §f%{_sender}%: %{_content}%"
+    send "§b[%{_ch}%] §f%{_sender}%: %{_content}%" to channel player as player
 
 on chzzk donation:
     set {_chn} to channel name
     set {_content} to donation content
     set {_amount} to donation amount
     set {_sender} to donation sender
-    broadcast "§b[%{_chn}%] §f%{_sender}%: %{_content}% &7- &e%{_amount}%"
+    send "§b[%{_chn}%] §f%{_sender}%: %{_content}% &7- &e%{_amount}%" to channel player as player
 
 on chzzk subscription:
     set {_chn} to channel name
     set {_tier} to subscription tier
     set {_month} to subscription month
     set {_sender} to subscription sender
-    broadcast "§b[%{_chn}%] &a%{_sender}%&f님의 &6%{_month}&f개월 구독%"
+    send "§b[%{_chn}%] &a%{_sender}%&f님의 &6%{_month}&f개월 구독%" to channel player as player
 ```
 
 ---

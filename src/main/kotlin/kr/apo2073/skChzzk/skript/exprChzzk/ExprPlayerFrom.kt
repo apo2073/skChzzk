@@ -14,8 +14,8 @@ class ExprPlayerFrom: SimpleExpression<Player>() {
     companion object {
         init {
             Skript.registerExpression(
-                ExprChzzkChannelInfo::class.java,
-                String::class.java,
+                ExprPlayerFrom::class.java,
+                Player::class.java,
                 ExpressionType.PROPERTY,
                 "%string% as player"
             )
