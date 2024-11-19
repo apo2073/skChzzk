@@ -50,6 +50,7 @@ __이벤트 - 구독__
 ```scss
 [chzzk] subscription # 이벤트
 
+# 이벤트 액션
 [the] [chzzk] subscription (sender|name)
 [the] [chzzk] subscription month[s]
 [the] [chzzk] subscription tier
