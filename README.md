@@ -3,26 +3,26 @@
 ---
 
 __채널 연결/연결해제__
-```vba
+```scss
 connect %player% to [chzzk] channel %string%
 disconnect %player%'s channel [from chzzk]
 disconnect (all|every) channel [from chzzk]
 ```
 
 __채널 정보__
-```vba
+```scss
 [the] chzzk channel name of %string%
 [the] chzzk channel follower[s] of %string%
 ```
 __플레이어 채널 정보__
-```vba
+```scss
 [(a|the)] %player%'s [chzzk] (channelId|channel)
 [(a|the)] %player%'s [chzzk] (channelName|name)
 [(a|the)] %player%'s [chzzk] (follower|fol)
 ```
 
 __이벤트 - 채팅__
-```vba
+```scss
 [chzzk] (chat|message) # 이벤트
 
 # 이벤트 액션
@@ -34,7 +34,7 @@ __이벤트 - 채팅__
 ```
 
 __이벤트 - 후원__
-```vba
+```scss
 [chzzk] donation # 이벤트
 
 # 이벤트 액션
@@ -47,7 +47,7 @@ __이벤트 - 후원__
 ```
 
 __이벤트 - 구독__
-```vba
+```scss
 [chzzk] subscription # 이벤트
 
 [the] [chzzk] subscription (sender|name)
