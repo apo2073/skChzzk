@@ -5,8 +5,8 @@
 __채널 연결/연결해제__
 ```scss
 connect %player% to [chzzk] channel %string%
-disconnect %player%'s channel [from chzzk]
-disconnect (all|every) channel [from chzzk]
+disconnect %player%'s channel
+disconnect (all|every) channel
 ```
 
 __채널 정보__
