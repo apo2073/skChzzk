@@ -2,6 +2,11 @@
 
 ---
 
+⛏ | 1.20.1 (Default)
+⛾ | JDK17+
+
+---
+
 __채널 연결/연결해제__
 ```scss
 connect %player% to [chzzk] channel %string%
