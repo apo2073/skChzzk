@@ -50,7 +50,7 @@ object ChzzkChatManager {
             }
             chat?.on(MissionDonationEvent::class.java) { evt ->
                 Bukkit.getScheduler() .runTask(SkChzzk.plugin, Runnable {
-                    println(evt==null) //todo:test hehre
+                    println(evt.message.payAmount) // done??????
                     val event= ChzzkMissionDonationEvent(evt.message, evt.chat)
                     Bukkit.getPluginManager().callEvent(event)
                 })
