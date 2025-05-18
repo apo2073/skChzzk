@@ -6,8 +6,9 @@ import ch.njol.skript.lang.ExpressionType
 import ch.njol.skript.lang.SkriptParser
 import ch.njol.skript.lang.util.SimpleExpression
 import ch.njol.util.Kleenean
-import kr.apo2073.skChzzk.utils.ChzzkChatManager
-import kr.apo2073.skChzzk.utils.ChzzkDonationEvent
+import kr.apo2073.skChzzk.chzzk.ChzzkChatManager
+import kr.apo2073.skChzzk.chzzk.ChzzkDonationEvent
+import kr.apo2073.skChzzk.chzzk.ChzzkMissionDonationEvent
 import org.bukkit.event.Event
 
 class ExprChzzkDonation : SimpleExpression<String>() {
@@ -45,16 +46,16 @@ class ExprChzzkDonation : SimpleExpression<String>() {
             val chat = event.chat
 
             return when (pattern) {
-                0 -> arrayOf("${msg.payAmount ?: "0"}")
+                0 -> arrayOf("${msg.payAmount}")
                 1 -> arrayOf(msg.profile?.nickname ?: "익명")
                 2 -> arrayOf(msg.content ?: "")
                 3 -> arrayOf(chat.channelId ?: "알 수 없음")
                 4 -> arrayOf(ChzzkChatManager.getChannelName(chat.channelId ?: "알 수 없음"))
                 5 -> arrayOf(ChzzkChatManager.getChannelPlayer(chat.channelId))
-                else -> arrayOf("")
+                else -> arrayOf()
             }
         }
-        return arrayOf("")
+        return arrayOf()
     }
 
 

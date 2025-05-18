@@ -6,7 +6,7 @@ import ch.njol.skript.lang.ExpressionType
 import ch.njol.skript.lang.SkriptParser
 import ch.njol.skript.lang.util.SimpleExpression
 import ch.njol.util.Kleenean
-import kr.apo2073.skChzzk.utils.ChzzkChatManager
+import kr.apo2073.skChzzk.chzzk.ChzzkChatManager
 import org.bukkit.entity.Player
 import org.bukkit.event.Event
 
@@ -29,10 +29,11 @@ class ExprChzzkPlayer: SimpleExpression<String>() {
     override fun get(event: Event): Array<String> {
         try {
             val player = playerExpr?.getSingle(event) ?: return arrayOf()
+            val id=ChzzkChatManager.getPlayerChannel(player.uniqueId)?.channelId ?: "none"
             return when(pattern) {
-                0-> arrayOf(ChzzkChatManager.getPlayerChannel(player.uniqueId)?.channelId ?: "NONE")
-                1-> arrayOf(ChzzkChatManager.getPlayerChannel(player.uniqueId)?.channelName ?: "none")
-                2-> arrayOf(ChzzkChatManager.getPlayerChannel(player.uniqueId)?.followerCount.toString())
+                0-> arrayOf(id)
+                1-> arrayOf(ChzzkChatManager.getChannelName(id))
+                2-> arrayOf(ChzzkChatManager.getChannelFollower(id))
                 else-> arrayOf()
             }
         } catch (e:Exception) {

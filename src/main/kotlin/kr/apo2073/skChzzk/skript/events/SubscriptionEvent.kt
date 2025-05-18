@@ -4,7 +4,7 @@ import ch.njol.skript.Skript
 import ch.njol.skript.lang.Literal
 import ch.njol.skript.lang.SkriptEvent
 import ch.njol.skript.lang.SkriptParser
-import kr.apo2073.skChzzk.utils.ChzzkSubscriptionEvent
+import kr.apo2073.skChzzk.chzzk.ChzzkSubscriptionEvent
 import org.bukkit.event.Event
 
 class SubscriptionEvent: SkriptEvent() {

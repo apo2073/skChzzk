@@ -19,7 +19,7 @@ object VersionManager {
         return URL(url).httpRequest {
             requestMethod = "GET"
             setRequestProperty("Accept", "application/vnd.github.v3+json")
-            setRequestProperty("Authorization", "Bearer ${File("${SkChzzk.instance.dataFolder}/TOKEN.txt").readText().trim()}")
+//            setRequestProperty("Authorization", "Bearer ${File("${SkChzzk.instance.dataFolder}/TOKEN.txt").readText().trim()}")
             inputStream.bufferedReader().use { it.readText() }
         }
     }

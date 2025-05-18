@@ -5,7 +5,7 @@ import ch.njol.skript.lang.Effect
 import ch.njol.skript.lang.Expression
 import ch.njol.skript.lang.SkriptParser
 import ch.njol.util.Kleenean
-import kr.apo2073.skChzzk.utils.ChzzkChatManager
+import kr.apo2073.skChzzk.chzzk.ChzzkChatManager
 import org.bukkit.entity.Player
 import org.bukkit.event.Event
 

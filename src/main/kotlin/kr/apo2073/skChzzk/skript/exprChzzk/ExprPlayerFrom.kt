@@ -25,7 +25,8 @@ class ExprPlayerFrom: SimpleExpression<Player>() {
 
     override fun get(event: Event): Array<Player> {
         try {
-            return arrayOf(Bukkit.getPlayer(strExpr.getSingle(event).toString()) ?: return arrayOf())
+            return arrayOf(Bukkit.getPlayer(strExpr.getSingle(event).toString())
+                ?: return arrayOf())
         } catch (e: Exception) {
             e.printStackTrace()
             return arrayOf()

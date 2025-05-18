@@ -4,7 +4,7 @@ import ch.njol.skript.Skript
 import ch.njol.skript.lang.Literal
 import ch.njol.skript.lang.SkriptEvent
 import ch.njol.skript.lang.SkriptParser
-import kr.apo2073.skChzzk.utils.ChzzkDonationEvent
+import kr.apo2073.skChzzk.chzzk.ChzzkDonationEvent
 import org.bukkit.event.Event
 
 class DonationEvent: SkriptEvent() {

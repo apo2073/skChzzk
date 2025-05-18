@@ -1,10 +1,10 @@
 plugins {
-    kotlin("jvm") version "2.0.21"
-    id("com.github.johnrengelman.shadow") version "8.1.1"
+    kotlin("jvm") version "2.1.20"
+    id("com.gradleup.shadow") version "9.0.0-beta10"
 }
 
 group = "kr.apo2073"
-version = "1.1"
+version = "1.2"
 
 repositories {
     mavenCentral()
@@ -18,13 +18,14 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("com.github.SkriptLang:Skript:2.9.4")
-    implementation(files("libs/chzzk4j.jar"))
+    implementation("com.github.SkriptLang:Skript:2.11.1")
+    implementation(files("libs/chzzk4j-0.1.1.jar"))
+//    implementation("io.github.R2turnTrue:chzzk4j:0.1.1")
 }
 
-val targetJavaVersion = 17
+val targetJavaVersion = 21
 kotlin {
     jvmToolchain(targetJavaVersion)
 }
@@ -43,10 +44,13 @@ tasks.processResources {
 }
 
 tasks.shadowJar {
+    minimize()
     archiveClassifier.set("all")
     mergeServiceFiles()
     archiveFileName.set("skChzzk.jar")
+//    destinationDirectory=file("C:\\Users\\PC\\Desktop\\dsadasd\\plugins")
     dependencies {
-        include(dependency(files("libs/chzzk4j.jar")))
+        include(dependency(files("libs/chzzk4j-0.1.1.jar")))
+//        include(dependency("io.github.R2turnTrue:chzzk4j:0.1.1"))
     }
 }

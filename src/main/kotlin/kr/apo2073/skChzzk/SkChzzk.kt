@@ -8,27 +8,35 @@ import kr.apo2073.skChzzk.skript.EffectChzzkDisconnectAll
 import kr.apo2073.skChzzk.skript.events.ChatEvent
 import kr.apo2073.skChzzk.skript.events.ChzzkEvent
 import kr.apo2073.skChzzk.skript.events.DonationEvent
+import kr.apo2073.skChzzk.skript.events.MissionDonationEvent
 import kr.apo2073.skChzzk.skript.events.SubscriptionEvent
 import kr.apo2073.skChzzk.skript.exprChzzk.*
-import kr.apo2073.skChzzk.utils.ChzzkChatManager
+import kr.apo2073.skChzzk.chzzk.ChzzkChatManager
+import kr.apo2073.skChzzk.chzzk.ChzzkData
+import kr.apo2073.skChzzk.skript.EffectChzzkAuth
+import kr.apo2073.skChzzk.skript.EffectChzzkClient
 import kr.apo2073.skChzzk.utils.VersionManager.getLatestVer
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import org.bukkit.plugin.java.JavaPlugin
 
 class SkChzzk : JavaPlugin() {
-    companion object { lateinit var instance:SkChzzk }
+    companion object {
+        lateinit var plugin:SkChzzk
+            private set
+        lateinit var chzzkData: ChzzkData
+    }
     private lateinit var addon:SkriptAddon
     private lateinit var chatManager: ChzzkChatManager
     override fun onEnable() {
-        instance=this
+        plugin=this
+        chzzkData= ChzzkData()
+//        saveResource("TOKEN.txt", true)
         chatManager=ChzzkChatManager
 
-        if (this.pluginMeta.version==getLatestVer()) {
+        if (this.pluginMeta.version.toDouble()<getLatestVer().toDouble()) {
             this.server.consoleSender.apply {
-                sendMessage(
-                    Component.text("SkChzzk의 새로운 버전이 출시 되었습니다", NamedTextColor.RED)
-                )
+                sendMessage(Component.text("SkChzzk의 새로운 버전이 출시 되었습니다. ( 현재 버전: ${pluginMeta.version}, 최신버전: ${getLatestVer()}", NamedTextColor.RED))
                 sendMessage(Component.text("다운로드 > \nhttps://github.com/apo2073/skChzzk/releases", NamedTextColor.WHITE))
             }
         }
@@ -46,11 +54,14 @@ class SkChzzk : JavaPlugin() {
             ChzzkEvent()
             ChatEvent()
             DonationEvent()
+            MissionDonationEvent()
             SubscriptionEvent()
 
             EffectChzzkConnect()
             EffectChzzkDisconnect()
             EffectChzzkDisconnectAll()
+            EffectChzzkAuth()
+            EffectChzzkClient()
         }
     }
 

@@ -2,9 +2,10 @@ package kr.apo2073.skChzzk.skript.events
 
 import ch.njol.skript.Skript
 import ch.njol.skript.lang.util.SimpleEvent
-import kr.apo2073.skChzzk.utils.ChzzkChatEvent
-import kr.apo2073.skChzzk.utils.ChzzkDonationEvent
-import kr.apo2073.skChzzk.utils.ChzzkSubscriptionEvent
+import kr.apo2073.skChzzk.chzzk.ChzzkChatEvent
+import kr.apo2073.skChzzk.chzzk.ChzzkDonationEvent
+import kr.apo2073.skChzzk.chzzk.ChzzkMissionDonationEvent
+import kr.apo2073.skChzzk.chzzk.ChzzkSubscriptionEvent
 
 class ChzzkEvent: SimpleEvent() {
     companion object {
@@ -18,6 +19,12 @@ class ChzzkEvent: SimpleEvent() {
                 SimpleEvent::class.java,
                 ChzzkDonationEvent::class.java,
                 "[chzzk] donation"
+            )
+            Skript.registerEvent(
+                "[chzzk] mission donation",
+                SimpleEvent::class.java,
+                ChzzkMissionDonationEvent::class.java,
+                "[chzzk] mission donation"
             )
             Skript.registerEvent("[chzzk] subscription",
                 SimpleEvent::class.java,

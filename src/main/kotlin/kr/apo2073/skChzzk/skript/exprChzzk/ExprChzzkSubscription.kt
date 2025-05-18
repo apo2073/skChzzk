@@ -6,8 +6,8 @@ import ch.njol.skript.lang.ExpressionType
 import ch.njol.skript.lang.SkriptParser
 import ch.njol.skript.lang.util.SimpleExpression
 import ch.njol.util.Kleenean
-import kr.apo2073.skChzzk.utils.ChzzkChatManager
-import kr.apo2073.skChzzk.utils.ChzzkSubscriptionEvent
+import kr.apo2073.skChzzk.chzzk.ChzzkChatManager
+import kr.apo2073.skChzzk.chzzk.ChzzkSubscriptionEvent
 import org.bukkit.event.Event
 
 class ExprChzzkSubscription : SimpleExpression<String>() {
