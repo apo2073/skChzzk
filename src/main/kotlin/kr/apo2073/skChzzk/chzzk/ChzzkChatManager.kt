@@ -44,21 +44,24 @@ object ChzzkChatManager {
             chat?.on(NormalDonationEvent::class.java) { evt->
                 Bukkit.getScheduler() .runTask(SkChzzk.plugin, Runnable {
                     val event= ChzzkDonationEvent(evt.message, evt.chat)
-                    println(evt.message.payAmount)
-                    Bukkit.getPluginManager().callEvent(event)
+                    val isSuc=event.callEvent()
+                    if (!isSuc) throw Exception("치지직 후원 이벤트를 처리하던 중 오류가 발생했습니다.")
+//                    println(evt.message.payAmount)
                 })
             }
             chat?.on(MissionDonationEvent::class.java) { evt ->
                 Bukkit.getScheduler() .runTask(SkChzzk.plugin, Runnable {
-                    println(evt.message.payAmount) // done??????
+//                    println(evt.message.payAmount) // done??????
                     val event= ChzzkMissionDonationEvent(evt.message, evt.chat)
-                    Bukkit.getPluginManager().callEvent(event)
+                    val isSuc=event.callEvent()
+                    if (!isSuc) throw Exception("치지직 미션 후원 이벤트를 처리하던 중 오류가 발생했습니다.")
                 })
             }
             chat?.on(SubscriptionMessageEvent::class.java) { evt->
                 Bukkit.getScheduler() .runTask(SkChzzk.plugin, Runnable {
                     val event= ChzzkSubscriptionEvent(evt.message, evt.chat)
-                    Bukkit.getPluginManager().callEvent(event)
+                    val isSuc=event.callEvent()
+                    if (!isSuc) throw Exception("치지직 구독 이벤트를 처리하던 중 오류가 발생했습니다.")
                 })
             }
             chat?.connectBlocking()

@@ -2,11 +2,30 @@
 
 ---
 
-⛏ | 1.20.1 (Default)
+⛏ | 1.21.1 (Default)
 
-⛾ | JDK17+
+⛾ | JDK21+
 
 ---
+
+__로그인__
+ * 클라이언트 로그인
+```scss
+[chzzk] client set with id %string% and secret %string%
+```
+ * 인증
+```scss
+[chzzk] auth as (api|naver|cookies) with %string% and %string%
+```
+1. api
+ 공식 api
+  앞에서 부터 accessToken, refreshToken
+2. naver
+ 네이버 계정
+  앞에서 부터 네이버 아이디, 비밀번호
+3. cookies
+ 네이버 쿠키
+  앞에서 부터 NID_AUT, NID_SES 쿠키
 
 __채널 연결/연결해제__
 ```scss
@@ -36,7 +55,7 @@ __이벤트 - 채팅__
 [the] [chzzk] (message|chat) sender
 [the] [chzzk] channel id
 [the] [chzzk] channel name
-[the] [chzzk] channel player
+[the] [chzzk] channel connector
 ```
 
 __이벤트 - 후원__
@@ -49,7 +68,7 @@ __이벤트 - 후원__
 [(the|a)] [chzzk] donation (content|message)
 [the] [chzzk] channel id
 [the] [chzzk] channel name
-[the] [chzzk] channel player
+[the] [chzzk] channel connector
 ```
 
 __이벤트 - 구독__
@@ -62,7 +81,7 @@ __이벤트 - 구독__
 [the] [chzzk] subscription tier
 [the] [chzzk] channel id
 [the] [chzzk] channel name
-[the] [chzzk] channel player
+[the] [chzzk] channel connector
 ```
 
 ---

@@ -1,12 +1,12 @@
 name: skChzzk
 version: ${version}
 main: kr.apo2073.skChzzk.SkChzzk
-api-version: '1.13'
+api-version: '1.17'
 prefix: SkChzzk
 depend:
   - Skript
 authors: [ 아포칼립스 ]
 libraries:
-  - org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.21
+  - org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.1.20
   - com.squareup.okhttp3:okhttp:4.9.3
   - org.java-websocket:Java-WebSocket:1.5.2

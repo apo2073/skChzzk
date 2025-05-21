@@ -22,7 +22,7 @@ class ExprChzzkSubscription : SimpleExpression<String>() {
                 "[the] [chzzk] subscription tier",
                 "[the] [chzzk] channel id",
                 "[the] [chzzk] channel name",
-                "[the] [chzzk] channel player"
+                "[the] [chzzk] channel connector"
             )
         }
     }

@@ -21,7 +21,7 @@ class ExprChzzkChat : SimpleExpression<String>() {
                 "[the] [chzzk] (message|chat) sender",
                 "[the] [chzzk] channel id",
                 "[the] [chzzk] channel name",
-                "[the] [chzzk] channel player"
+                "[the] [chzzk] channel connector"
             )
         }
     }

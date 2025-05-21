@@ -23,7 +23,7 @@ class ExprChzzkDonation : SimpleExpression<String>() {
                 "[(the|a)] [chzzk] donation (content|message)",
                 "[the] [chzzk] channel id",
                 "[the] [chzzk] channel name",
-                "[the] [chzzk] channel player"
+                "[the] [chzzk] channel connector"
             )
         }
     }
