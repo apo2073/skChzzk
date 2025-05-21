@@ -18,12 +18,12 @@ __로그인__
 [chzzk] auth as (api|naver|cookies) with %string% and %string%
 ```
 1. api
- 공식 api
+ 공식 api:
   앞에서 부터 accessToken, refreshToken
 2. naver
- 네이버 계정
+ 네이버 계정:
   앞에서 부터 네이버 아이디, 비밀번호
-3. cookies
+3. cookies:
  네이버 쿠키
   앞에서 부터 NID_AUT, NID_SES 쿠키
 
