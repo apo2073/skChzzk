@@ -15,6 +15,7 @@ import kr.apo2073.skChzzk.chzzk.ChzzkChatManager
 import kr.apo2073.skChzzk.chzzk.ChzzkData
 import kr.apo2073.skChzzk.skript.EffectChzzkAuth
 import kr.apo2073.skChzzk.skript.EffectChzzkClient
+import kr.apo2073.skChzzk.utils.VersionManager
 import kr.apo2073.skChzzk.utils.VersionManager.getLatestVer
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
@@ -34,12 +35,7 @@ class SkChzzk : JavaPlugin() {
 //        saveResource("TOKEN.txt", true)
         chatManager=ChzzkChatManager
 
-        if (this.pluginMeta.version.toDouble()<getLatestVer().toDouble()) {
-            this.server.consoleSender.apply {
-                sendMessage(Component.text("SkChzzk의 새로운 버전이 출시 되었습니다. ( 현재 버전: ${pluginMeta.version}, 최신버전: ${getLatestVer()}", NamedTextColor.RED))
-                sendMessage(Component.text("다운로드 > \nhttps://github.com/apo2073/skChzzk/releases", NamedTextColor.WHITE))
-            }
-        }
+        VersionManager.checkLatest()
 
         if (server.pluginManager.getPlugin("Skript")!=null) {
             addon=Skript.registerAddon(this)
