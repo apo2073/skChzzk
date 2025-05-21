@@ -31,6 +31,7 @@ class SkChzzk : JavaPlugin() {
             
             ExprChzzkChat()
             ExprChzzkDonation()
+            ExprChzzkMissionDonation()
             ExprChzzkSubscription()
             ExprChzzkChannelInfo()
             ExprChzzkPlayer()
