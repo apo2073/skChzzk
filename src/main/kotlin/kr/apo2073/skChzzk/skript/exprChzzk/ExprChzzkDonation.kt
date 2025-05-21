@@ -8,7 +8,6 @@ import ch.njol.skript.lang.util.SimpleExpression
 import ch.njol.util.Kleenean
 import kr.apo2073.skChzzk.chzzk.ChzzkChatManager
 import kr.apo2073.skChzzk.chzzk.ChzzkDonationEvent
-import kr.apo2073.skChzzk.chzzk.ChzzkMissionDonationEvent
 import org.bukkit.event.Event
 
 class ExprChzzkDonation : SimpleExpression<String>() {

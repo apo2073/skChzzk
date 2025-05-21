@@ -11,7 +11,7 @@ import xyz.r2turntrue.chzzk4j.chat.event.MissionDonationEvent
 import xyz.r2turntrue.chzzk4j.chat.event.NormalDonationEvent
 import xyz.r2turntrue.chzzk4j.chat.event.SubscriptionMessageEvent
 import xyz.r2turntrue.chzzk4j.types.channel.ChzzkChannel
-import java.util.UUID
+import java.util.*
 
 object ChzzkChatManager {
     private lateinit var client: ChzzkClient

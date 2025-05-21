@@ -2,23 +2,12 @@ package kr.apo2073.skChzzk
 
 import ch.njol.skript.Skript
 import ch.njol.skript.SkriptAddon
-import kr.apo2073.skChzzk.skript.EffectChzzkConnect
-import kr.apo2073.skChzzk.skript.EffectChzzkDisconnect
-import kr.apo2073.skChzzk.skript.EffectChzzkDisconnectAll
-import kr.apo2073.skChzzk.skript.events.ChatEvent
-import kr.apo2073.skChzzk.skript.events.ChzzkEvent
-import kr.apo2073.skChzzk.skript.events.DonationEvent
-import kr.apo2073.skChzzk.skript.events.MissionDonationEvent
-import kr.apo2073.skChzzk.skript.events.SubscriptionEvent
-import kr.apo2073.skChzzk.skript.exprChzzk.*
 import kr.apo2073.skChzzk.chzzk.ChzzkChatManager
 import kr.apo2073.skChzzk.chzzk.ChzzkData
-import kr.apo2073.skChzzk.skript.EffectChzzkAuth
-import kr.apo2073.skChzzk.skript.EffectChzzkClient
+import kr.apo2073.skChzzk.skript.*
+import kr.apo2073.skChzzk.skript.events.*
+import kr.apo2073.skChzzk.skript.exprChzzk.*
 import kr.apo2073.skChzzk.utils.VersionManager
-import kr.apo2073.skChzzk.utils.VersionManager.getLatestVer
-import net.kyori.adventure.text.Component
-import net.kyori.adventure.text.format.NamedTextColor
 import org.bukkit.plugin.java.JavaPlugin
 
 class SkChzzk : JavaPlugin() {

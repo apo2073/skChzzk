@@ -5,7 +5,6 @@ import com.google.gson.JsonObject
 import kr.apo2073.skChzzk.SkChzzk
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
-import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
 
