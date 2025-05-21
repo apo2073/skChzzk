@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "kr.apo2073"
-version = "1.2"
+version = "1.2-BETA"
 
 repositories {
     mavenCentral()
@@ -47,7 +47,7 @@ tasks.shadowJar {
     minimize()
     archiveClassifier.set("all")
     mergeServiceFiles()
-    archiveFileName.set("skChzzk.jar")
+    archiveFileName.set("skChzzk-${version}.jar")
 //    destinationDirectory=file("C:\\Users\\PC\\Desktop\\dsadasd\\plugins")
     dependencies {
         include(dependency(files("libs/chzzk4j-0.1.1.jar")))
