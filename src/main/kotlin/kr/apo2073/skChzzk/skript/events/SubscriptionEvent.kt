@@ -14,7 +14,7 @@ class SubscriptionEvent: SkriptEvent() {
                 "Chzzk Subscription",
                 SubscriptionEvent::class.java,
                 ChzzkSubscriptionEvent::class.java,
-                "[chzzk] subscription"
+                "[chzzk] (subscription|sub)"
             )
         }
     }

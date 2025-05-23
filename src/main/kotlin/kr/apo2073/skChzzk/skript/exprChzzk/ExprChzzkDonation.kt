@@ -43,6 +43,7 @@ class ExprChzzkDonation : SimpleExpression<String>() {
         if (event is ChzzkDonationEvent) {
             val msg = event.message
             val chat = event.chat
+            println("skript event called")
 
             return when (pattern) {
                 0 -> arrayOf("${msg.payAmount}")

@@ -18,18 +18,18 @@ class ChzzkEvent: SimpleEvent() {
             Skript.registerEvent("[chzzk] donation",
                 SimpleEvent::class.java,
                 ChzzkDonationEvent::class.java,
-                "[chzzk] donation"
+                "[chzzk] (donation|done)"
             )
             Skript.registerEvent(
                 "[chzzk] mission donation",
                 SimpleEvent::class.java,
                 ChzzkMissionDonationEvent::class.java,
-                "[chzzk] mission donation"
+                "[chzzk] (mission|challenge) [donation]"
             )
             Skript.registerEvent("[chzzk] subscription",
                 SimpleEvent::class.java,
                 ChzzkSubscriptionEvent::class.java,
-                "[chzzk] subscription"
+                "[chzzk] (subscription|sub)"
             )
         }
     }

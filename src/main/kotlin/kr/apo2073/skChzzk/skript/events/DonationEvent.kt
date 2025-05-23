@@ -14,7 +14,7 @@ class DonationEvent: SkriptEvent() {
                 "Chzzk Donation",
                 DonationEvent::class.java,
                 ChzzkDonationEvent::class.java,
-                "[chzzk] donation"
+                "[chzzk] (donation|done)"
             )
         }
     }

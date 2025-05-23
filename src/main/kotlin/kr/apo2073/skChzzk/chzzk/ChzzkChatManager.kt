@@ -38,7 +38,8 @@ object ChzzkChatManager {
             chat?.on(ChatMessageEvent::class.java) { evt->
                 Bukkit.getScheduler() .runTask(SkChzzk.plugin, Runnable {
                     val event= ChzzkChatEvent(evt.message, evt.chat)
-                    Bukkit.getPluginManager().callEvent(event)
+                    val isSuc=event.callEvent()
+                    if (!isSuc) throw Exception("치지직 채팅 이벤트를 처리하던 중 오류가 발생했습니다.")
                 })
             }
             chat?.on(NormalDonationEvent::class.java) { evt->
@@ -46,7 +47,7 @@ object ChzzkChatManager {
                     val event= ChzzkDonationEvent(evt.message, evt.chat)
                     val isSuc=event.callEvent()
                     if (!isSuc) throw Exception("치지직 후원 이벤트를 처리하던 중 오류가 발생했습니다.")
-//                    println(evt.message.payAmount)
+//                    println("chzzk event called"+evt.message.payAmount)
                 })
             }
             chat?.on(MissionDonationEvent::class.java) { evt ->
