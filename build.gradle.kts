@@ -1,10 +1,10 @@
 plugins {
-    kotlin("jvm") version "2.1.20"
+    kotlin("jvm") version "2.2.10"
     id("com.gradleup.shadow") version "9.0.0-beta10"
 }
 
 group = "kr.apo2073"
-version = "1.2-BETA"
+version = "1.3"
 
 repositories {
     mavenCentral()
@@ -18,9 +18,9 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    implementation("com.github.SkriptLang:Skript:2.11.1")
+    implementation("com.github.SkriptLang:Skript:2.13.0")
     implementation(files("libs/chzzk4j-0.1.1.jar"))
 //    implementation("io.github.R2turnTrue:chzzk4j:0.1.1")
 }

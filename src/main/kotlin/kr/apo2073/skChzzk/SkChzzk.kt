@@ -4,9 +4,6 @@ import ch.njol.skript.Skript
 import ch.njol.skript.SkriptAddon
 import kr.apo2073.skChzzk.chzzk.ChzzkChatManager
 import kr.apo2073.skChzzk.chzzk.ChzzkData
-import kr.apo2073.skChzzk.skript.*
-import kr.apo2073.skChzzk.skript.events.*
-import kr.apo2073.skChzzk.skript.exprChzzk.*
 import kr.apo2073.skChzzk.utils.VersionManager
 import org.bukkit.plugin.java.JavaPlugin
 
@@ -28,26 +25,8 @@ class SkChzzk : JavaPlugin() {
 
         if (server.pluginManager.getPlugin("Skript")!=null) {
             addon=Skript.registerAddon(this)
-            
-            ExprChzzkChat()
-            ExprChzzkDonation()
-            ExprChzzkMissionDonation()
-            ExprChzzkSubscription()
-            ExprChzzkChannelInfo()
-            ExprChzzkPlayer()
-            ExprPlayerFrom()
-            
-            ChzzkEvent()
-            ChatEvent()
-            DonationEvent()
-            MissionDonationEvent()
-            SubscriptionEvent()
 
-            EffectChzzkConnect()
-            EffectChzzkDisconnect()
-            EffectChzzkDisconnectAll()
-            EffectChzzkAuth()
-            EffectChzzkClient()
+            addon.loadClasses("kr.apo2073.skChzzk.skript")
         }
     }
 
